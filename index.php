@@ -2,7 +2,11 @@
 /* 
 Plugin Name: bbPress load more topics
 Description: load more topics with ajax
+Revision Date: 30 07, 2013
+Requires at least: 3.0
+Tested up to: 3.5.2
 Author: ckchaudhary
+Author URI: http://webdeveloperswall.com/
 */
 
 /*
