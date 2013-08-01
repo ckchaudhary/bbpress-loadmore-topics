@@ -51,15 +51,17 @@ class BBPressMoreTopics{
             $args['post_parent'] = $forum_id;
         }
 
-        if( emusic_set_bbp_query( 'hasmoretopics', $args ) ){
-            $html = "<ul class='activity-list topics-list-load-more'><li class='load-more'>";
-            $html .= "<a href='#more' class='bbtopics_loadmore js_bbtopics_loadmore' data-nextpage='$next_page' ";
+        if( $have_topics = emusic_set_bbp_query( 'hasmoretopics', $args ) ){
+            if( $have_topics->max_num_pages > bbp_get_paged() ){
+                $html = "<ul class='activity-list topics-list-load-more'><li class='load-more'>";
+                $html .= "<a href='#more' class='bbtopics_loadmore js_bbtopics_loadmore' data-nextpage='$next_page' ";
 
-            if( $forum_id ){
-                $html .= "data-forumid='$forum_id' ";
+                if( $forum_id ){
+                    $html .= "data-forumid='$forum_id' ";
+                }
+
+                $html .= ">Load More</a></li></ul>";    
             }
-
-            $html .= ">Load More</a></li></ul>";
         }
 
         emusic_reset_bbp_query();
